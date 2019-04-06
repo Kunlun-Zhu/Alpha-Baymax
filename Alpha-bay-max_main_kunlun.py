@@ -14,10 +14,15 @@ ask = Ask(app, "/")
 logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 
 total_question = 5 # total number of the question
-question_list = ['question1', 'question2', 'question3', 'question4', 'question5'] #list of question we are going to ask
+question_list = ['Do you feel bad today',\
+                 'Do you have intimate relation in this week',\
+                 'Did you exercise in the last three days',\
+                 'Do you talk to more than two friends in last two days',\
+                  'Are you facing any deadline right now'] #list of question we are going to ask
 positive_list = ['yes', 'yes', 'yes', 'yes', 'yes'] #answer that will increase the final_review
 negetive_list = ['no', 'no', 'no', 'no', 'no'] #answer that will decrease the final_review
-
+positive_points = [1, 2, 3, 4, 5]
+negetive_potins = [-1, -2, -3, -4, -5]
 
 round_number = 0 #to clarify what number of question we are going to ask
 
@@ -57,9 +62,9 @@ def answer(first, second, third):
         msg = "Thanks, we have ask all our questions, and we'll start to analyze"
 
     if first == positive_list[round_number-1]:
-        Final_review += 1
+        Final_review += positive_points[round_number-1]
     elif first == negetive_list[round_number-1]:
-        Final_review -= 1
+        Final_review += negetive_potins[round_number-1]
 
     return statement(msg)
 
