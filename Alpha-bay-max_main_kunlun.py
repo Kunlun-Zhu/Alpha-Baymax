@@ -23,6 +23,7 @@ positive_list = ['yes', 'yes', 'yes', 'yes', 'yes'] #answer that will increase t
 negative_list = ['no', 'no', 'no', 'no', 'no'] #answer that will decrease the final_review
 positive_points = [1, 2, 3, 4, 5]
 negative_points = [-1, -2, -3, -4, -5]
+mood_state = ['fine', 'sad', 'very sad', 'desperate']
 
 round_number = 0 #to clarify what number of question we are going to ask
 
@@ -67,7 +68,21 @@ def answer(first, second, third):
     elif first == negetive_list[round_number-1]:
         Final_review += negative_points[round_number-1]
 
+
+    if round_number == total_question:
+        msg
+
     return statement(msg)
+
+def classify_func(review_score):
+    if (review_score > 0):
+        return mood_state[0]
+    if (review_score < -13):
+        return mood_state[3]
+    if (review_score < -8):
+        return mood_state[2]
+    if (review_score <= 0):
+        return mood_state[1]
 
 
 if __name__ == '__main__':
