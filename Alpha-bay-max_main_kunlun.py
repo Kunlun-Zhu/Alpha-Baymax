@@ -20,9 +20,9 @@ question_list = ['Do you feel bad today',\
                  'Do you talk to more than two friends in last two days',\
                   'Are you facing any deadline right now'] #list of question we are going to ask
 positive_list = ['yes', 'yes', 'yes', 'yes', 'yes'] #answer that will increase the final_review
-negetive_list = ['no', 'no', 'no', 'no', 'no'] #answer that will decrease the final_review
+negative_list = ['no', 'no', 'no', 'no', 'no'] #answer that will decrease the final_review
 positive_points = [1, 2, 3, 4, 5]
-negetive_potins = [-1, -2, -3, -4, -5]
+negative_points = [-1, -2, -3, -4, -5]
 
 round_number = 0 #to clarify what number of question we are going to ask
 
@@ -65,7 +65,7 @@ def answer(first, second, third):
     if first == positive_list[round_number-1]:
         Final_review += positive_points[round_number-1]
     elif first == negetive_list[round_number-1]:
-        Final_review += negetive_potins[round_number-1]
+        Final_review += negative_points[round_number-1]
 
     return statement(msg)
 
