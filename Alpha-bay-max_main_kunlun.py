@@ -32,7 +32,8 @@ Final_review = 0
 
 def new_game():
 
-    welcome_msg = render_template('welcome')
+    welcome_msg = 'Welcome, this is alpha bay max, we are going to help you analyze your current mood state,\
+                    and try our best to make you feel better'
 
     return question(welcome_msg)
 
