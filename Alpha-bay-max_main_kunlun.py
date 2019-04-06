@@ -15,7 +15,7 @@ logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 
 question_list = ['question1', 'question2', 'question3', 'question4', 'question5'] #list of question we are going to ask
 
-roundnumber = 0 #to clarify what number of question we are going to ask
+round_number = 0 #to clarify what number of question we are going to ask
 
 Final_review = 0
 
@@ -35,27 +35,28 @@ def next_round():
 
     round_msg = render_template('round', numbers=numbers)
 
-    session.attributes['question'] = question_list[roundnumber]  # input the question into the session
+    session.attributes['question'] = question_list[round_number]  # input the question into the session
 
-    roundnumber+=1
+    round_number+=1
 
     return question(round_msg)
 
 
-@ask.intent("AnswerIntent", convert={'first': int, 'second': int, 'third': int})
+@ask.intent("AnswerIntent", convert={'first': str})
 
 def answer(first, second, third):
 
-    winning_numbers = session.attributes['numbers']
+    winning_numbers = session.attributes['question']
 
-    if [first, second, third] == winning_numbers:
+    if first == 'yes':
 
         msg = render_template('win')
-
-    else:
+        Final_review += 1
+    elif first == 'no':
 
         msg = render_template('lose')
-
+        Final_review -= 1
+        
     return statement(msg)
 
 
