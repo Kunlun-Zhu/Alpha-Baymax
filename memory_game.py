@@ -13,6 +13,8 @@ ask = Ask(app, "/")
 
 logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 
+question_list = ['question1', 'question2', 'question3', 'question4', 'question5']
+
 
 @ask.launch
 
