@@ -32,7 +32,6 @@ def new_game():
 
 def next_round():
 
-    numbers = [randint(0, 9) for _ in range(3)]
 
     round_msg = render_template('round', numbers=numbers)
 
