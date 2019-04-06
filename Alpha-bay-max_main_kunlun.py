@@ -13,6 +13,7 @@ ask = Ask(app, "/")
 
 logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 
+total_question = 5 # total number of the question
 question_list = ['question1', 'question2', 'question3', 'question4', 'question5'] #list of question we are going to ask
 positive_list = ['yes', 'yes', 'yes', 'yes', 'yes'] #answer that will increase the final_review
 negetive_list = ['no', 'no', 'no', 'no', 'no'] #answer that will decrease the final_review
@@ -38,7 +39,7 @@ def next_round():
 
     round_msg = question_list[round_number]
 
-    session.attributes['question'] = positive_list[round_number]  # input the question into the session
+    session.attributes['positive_ans'] = positive_list[round_number]  # input the question into the session
 
     round_number+=1
 
@@ -49,15 +50,15 @@ def next_round():
 
 def answer(first, second, third):
 
-    winning_numbers = session.attributes['question']
+    winning_numbers = session.attributes['positive_ans']
+    if round_number < total_question:
+        msg = 'Thanks for your answer, we are going to ask you another question'
+    else:
+        msg = "Thanks, we have ask all our questions, and we'll start to analyze"
 
     if first == positive_list[round_number-1]:
-
-        msg = render_template('win')
         Final_review += 1
     elif first == negetive_list[round_number-1]:
-
-        msg = render_template('lose')
         Final_review -= 1
 
     return statement(msg)
