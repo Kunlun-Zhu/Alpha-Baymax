@@ -14,6 +14,8 @@ ask = Ask(app, "/")
 logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 
 question_list = ['question1', 'question2', 'question3', 'question4', 'question5'] #list of question we are going to ask
+positive_list = ['yes', 'yes', 'yes', 'yes', 'yes']
+negetive_list = ['no', 'no', 'no', 'no', 'no']
 
 round_number = 0 #to clarify what number of question we are going to ask
 
@@ -33,9 +35,9 @@ def new_game():
 def next_round():
 
 
-    round_msg = render_template('round', numbers=numbers)
+    round_msg = statement(question_list[round_number])
 
-    session.attributes['question'] = question_list[round_number]  # input the question into the session
+    session.attributes['question'] = positive_list[round_number]  # input the question into the session
 
     round_number+=1
 
@@ -56,7 +58,7 @@ def answer(first, second, third):
 
         msg = render_template('lose')
         Final_review -= 1
-        
+
     return statement(msg)
 
 
