@@ -34,6 +34,7 @@ Final_review = 0
 @ask.launch
 
 def new_game():
+    
 
     welcome_msg = 'Welcome, this is alpha bay max, we are going to help you analyze your current mood state,\
                     and try our best to make you feel better'
@@ -45,6 +46,7 @@ def new_game():
 
 def next_round():
 
+    global round_number
 
     round_msg = question_list[round_number]
 
