@@ -44,7 +44,7 @@ def new_game():
 
     return question(welcome_msg)
 
-@ask.intent("OKIntent_1")
+@ask.intent("OKIntent_a")
 
 def next_round1():
     round_number = session.attributes['round_number']
@@ -53,7 +53,7 @@ def next_round1():
 
     return question(round_msg)
 
-@ask.intent("AnswerIntent_1", convert={'first': str})
+@ask.intent("AnswerIntent_a", convert={'first': str})
 
 def answer1(first):
     round_number = session.attributes['round_number']
@@ -79,7 +79,7 @@ def answer1(first):
         msg += session.attributes['suggestions']
         return statement(msg)
 
-@ask.intent("OKIntent_2")
+@ask.intent("OKIntent_b")
 
 def next_round2():
     round_number = session.attributes['round_number']
@@ -88,7 +88,7 @@ def next_round2():
 
     return question(round_msg)
 
-@ask.intent("AnswerIntent_2", convert={'first': str})
+@ask.intent("AnswerIntent_b", convert={'first': str})
 
 def answer2(first):
     round_number = session.attributes['round_number']
@@ -114,7 +114,7 @@ def answer2(first):
         msg += session.attributes['suggestions']
         return statement(msg)
 
-@ask.intent("OKIntent_3")
+@ask.intent("OKIntent_c")
 
 def next_round3():
     round_number = session.attributes['round_number']
@@ -123,7 +123,7 @@ def next_round3():
 
     return question(round_msg)
 
-@ask.intent("AnswerIntent_3", convert={'first': str})
+@ask.intent("AnswerIntent_c", convert={'first': str})
 
 def answer3(first):
     round_number = session.attributes['round_number']
@@ -149,7 +149,7 @@ def answer3(first):
         msg += session.attributes['suggestions']
         return statement(msg)
 
-@ask.intent("OKIntent_4")
+@ask.intent("OKIntent_d")
 
 def next_round4():
     round_number = session.attributes['round_number']
@@ -158,7 +158,7 @@ def next_round4():
 
     return question(round_msg)
 
-@ask.intent("AnswerIntent_4", convert={'first': str})
+@ask.intent("AnswerIntent_d", convert={'first': str})
 
 def answer4(first):
     round_number = session.attributes['round_number']
@@ -184,7 +184,7 @@ def answer4(first):
         msg += session.attributes['suggestions']
         return statement(msg)
 
-@ask.intent("OKIntent_5")
+@ask.intent("OKIntent_e")
 
 def next_round5():
     round_number = session.attributes['round_number']
@@ -193,7 +193,7 @@ def next_round5():
 
     return question(round_msg)
 
-@ask.intent("AnswerIntent_5", convert={'first': str})
+@ask.intent("AnswerIntent_e", convert={'first': str})
 
 def answer5(first):
     round_number = session.attributes['round_number']
