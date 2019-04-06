@@ -46,7 +46,7 @@ def new_game():
 
 @ask.intent("YesIntent")
 
-def next_round():
+def next_round1():
     round_number = session.attributes['round_number']
 
     round_msg = session.attributes['question_list'][round_number]
@@ -55,7 +55,7 @@ def next_round():
 
 @ask.intent("AnswerIntent", convert={'first': str})
 
-def answer(first):
+def answer1(first):
     round_number = session.attributes['round_number']
     total_question = session.attributes['total_question']
 
@@ -78,6 +78,148 @@ def answer(first):
         msg = 'we think now you are {}'.format(str(mood_state_ana))
         msg += session.attributes['suggestions']
         return statement(msg)
+
+@ask.intent("YesIntent")
+
+def next_round2():
+    round_number = session.attributes['round_number']
+
+    round_msg = session.attributes['question_list'][round_number]
+
+    return question(round_msg)
+
+@ask.intent("AnswerIntent", convert={'first': str})
+
+def answer2(first):
+    round_number = session.attributes['round_number']
+    total_question = session.attributes['total_question']
+
+    if first == session.attributes['positive_answer'][round_number]:
+        session.attributes['Final_review'] += session.attributes['positive_points'][round_number]
+    else:
+        session.attributes['Final_review'] += session.attributes['negative_points'][round_number]
+
+    if round_number < total_question - 1:
+        msg = 'Thanks for your answer, we are going to ask you another question'
+        session.attributes['round_number'] += 1
+
+        return statement(msg)
+    else:
+        msg = "Thanks, we have ask all our questions, and we'll start to analyze"
+
+    final_score = session.attributes['Final_review']
+    mood_state_ana = classify_func(final_score)
+
+    msg = 'we think now you are {}'.format(str(mood_state_ana))
+    msg += session.attributes['suggestions']
+    return statement(msg)
+
+@ask.intent("YesIntent")
+
+def next_round3():
+    round_number = session.attributes['round_number']
+
+    round_msg = session.attributes['question_list'][round_number]
+
+    return question(round_msg)
+
+@ask.intent("AnswerIntent", convert={'first': str})
+
+def answer3(first):
+    round_number = session.attributes['round_number']
+    total_question = session.attributes['total_question']
+
+    if first == session.attributes['positive_answer'][round_number]:
+        session.attributes['Final_review'] += session.attributes['positive_points'][round_number]
+    else:
+        session.attributes['Final_review'] += session.attributes['negative_points'][round_number]
+
+    if round_number < total_question - 1:
+        msg = 'Thanks for your answer, we are going to ask you another question'
+        session.attributes['round_number'] += 1
+
+        return statement(msg)
+    else:
+        msg = "Thanks, we have ask all our questions, and we'll start to analyze"
+
+    final_score = session.attributes['Final_review']
+    mood_state_ana = classify_func(final_score)
+
+    msg = 'we think now you are {}'.format(str(mood_state_ana))
+    msg += session.attributes['suggestions']
+    return statement(msg)
+
+@ask.intent("YesIntent")
+
+def next_round4():
+    round_number = session.attributes['round_number']
+
+    round_msg = session.attributes['question_list'][round_number]
+
+    return question(round_msg)
+
+@ask.intent("AnswerIntent", convert={'first': str})
+
+def answer4(first):
+    round_number = session.attributes['round_number']
+    total_question = session.attributes['total_question']
+
+    if first == session.attributes['positive_answer'][round_number]:
+        session.attributes['Final_review'] += session.attributes['positive_points'][round_number]
+    else:
+        session.attributes['Final_review'] += session.attributes['negative_points'][round_number]
+
+    if round_number < total_question - 1:
+        msg = 'Thanks for your answer, we are going to ask you another question'
+        session.attributes['round_number'] += 1
+
+        return statement(msg)
+    else:
+        msg = "Thanks, we have ask all our questions, and we'll start to analyze"
+
+    final_score = session.attributes['Final_review']
+    mood_state_ana = classify_func(final_score)
+
+    msg = 'we think now you are {}'.format(str(mood_state_ana))
+    msg += session.attributes['suggestions']
+    return statement(msg)
+
+@ask.intent("YesIntent")
+
+def next_round5():
+    round_number = session.attributes['round_number']
+
+    round_msg = session.attributes['question_list'][round_number]
+
+    return question(round_msg)
+
+@ask.intent("AnswerIntent", convert={'first': str})
+
+def answer5(first):
+    round_number = session.attributes['round_number']
+    total_question = session.attributes['total_question']
+
+    if first == session.attributes['positive_answer'][round_number]:
+        session.attributes['Final_review'] += session.attributes['positive_points'][round_number]
+    else:
+        session.attributes['Final_review'] += session.attributes['negative_points'][round_number]
+
+    if round_number < total_question - 1:
+        msg = 'Thanks for your answer, we are going to ask you another question'
+        session.attributes['round_number'] += 1
+
+        return statement(msg)
+    else:
+        msg = "Thanks, we have ask all our questions, and we'll start to analyze"
+
+    final_score = session.attributes['Final_review']
+    mood_state_ana = classify_func(final_score)
+
+    msg = 'we think now you are {}'.format(str(mood_state_ana))
+    msg += session.attributes['suggestions']
+    return statement(msg)
+
+
 
 def classify_func(review_score):
     if (review_score > 0):

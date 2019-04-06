@@ -44,7 +44,7 @@ def new_game():
 
     return question(welcome_msg)
 
-@ask.intent("YesIntent")
+@ask.intent("OKIntent")
 
 def next_round():
     round_number = session.attributes['round_number']
@@ -69,6 +69,7 @@ def answer(first):
         session.attributes['round_number'] += 1
         
         return statement(msg) 
+
     else:
         msg = "Thanks, we have ask all our questions, and we'll start to analyze"
 
@@ -80,6 +81,8 @@ def answer(first):
         return statement(msg)
 
 '''
+=======
+>>>>>>> a085b67ba858c4748662c1d9bdc4f2e67b1d45ef
 def classify_func(review_score):
     if (review_score > 0):
         return session.attributes['mood_state'][0]
@@ -89,6 +92,7 @@ def classify_func(review_score):
         return session.attributes['mood_state'][2]
     if (review_score <= 0):
         return session.attributes['mood_state'][1]
+<<<<<<< HEAD
 '''
 if __name__ == '__main__':
 
