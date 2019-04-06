@@ -15,7 +15,7 @@ logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 
 total_question = 5 # total number of the question
 question_list = ['Do you feel bad today',\
-                 'Do you have intimate relation in this week',\
+                 'Do you have any intimate relation in this week',\
                  'Did you exercise in the last three days',\
                  'Do you talk to more than two friends in last two days',\
                   'Are you facing any deadline right now'] #list of question we are going to ask
