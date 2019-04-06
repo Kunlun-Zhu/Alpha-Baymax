@@ -36,7 +36,7 @@ def new_game():
 def next_round():
 
 
-    round_msg = statement(question_list[round_number])
+    round_msg = question_list[round_number]
 
     session.attributes['question'] = positive_list[round_number]  # input the question into the session
 
