@@ -65,19 +65,19 @@ def answer(first):
         session.attributes['Final_review'] += session.attributes['negative_points'][round_number]
 
     if round_number < total_question - 1:
-        msg = 'Thanks for your answer, we are going to ask you another question'
+        #msg = 'Thanks for your answer, we are going to ask you another question'
         session.attributes['round_number'] += 1
 
-        return statement(msg)
+        next_round()
     else:
         msg = "Thanks, we have ask all our questions, and we'll start to analyze"
 
-    final_score = session.attributes['Final_review']
-    mood_state_ana = classify_func(final_score)
+        final_score = session.attributes['Final_review']
+        mood_state_ana = classify_func(final_score)
 
-    msg = 'we think now you are {}'.format(str(mood_state_ana))
-    msg += session.attributes['suggestions']
-    return statement(msg)
+        msg = 'we think now you are {}'.format(str(mood_state_ana))
+        msg += session.attributes['suggestions']
+        return statement(msg)
 
 def classify_func(review_score):
     if (review_score > 0):
@@ -88,7 +88,6 @@ def classify_func(review_score):
         return session.attributes['mood_state'][2]
     if (review_score <= 0):
         return session.attributes['mood_state'][1]
-
 
 if __name__ == '__main__':
 
