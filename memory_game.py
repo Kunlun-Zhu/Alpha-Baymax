@@ -15,6 +15,7 @@ logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 
 question_list = ['question1', 'question2', 'question3', 'question4', 'question5']
 
+roundnumber = 0 #to clarify what number of question we are going to ask
 
 @ask.launch
 
@@ -33,7 +34,9 @@ def next_round():
 
     round_msg = render_template('round', numbers=numbers)
 
-    session.attributes['numbers'] = numbers[::-1]  # reverse
+    session.attributes['question'] = question_list[roundnumber]  # input the question into the session
+
+    roundnumber+=1
 
     return question(round_msg)
 
