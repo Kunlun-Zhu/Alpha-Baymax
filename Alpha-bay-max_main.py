@@ -13,9 +13,18 @@ ask = Ask(app, "/")
 
 logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 
-question_list = ['question1', 'question2', 'question3', 'question4', 'question5'] #list of question we are going to ask
+total_question = 5 # total number of the question
+question_list = ['Do you feel bad today',\
+                 'Do you have any intimate relation in this week',\
+                 'Did you exercise in the last three days',\
+                 'Do you talk to more than two friends in last two days',\
+                  'Are you facing any deadline right now'] #list of question we are going to ask
+positive_list = ['yes', 'yes', 'yes', 'yes', 'yes'] #answer that will increase the final_review
+negative_list = ['no', 'no', 'no', 'no', 'no'] #answer that will decrease the final_review
+positive_points = [1, 2, 3, 4, 5]
+negative_points = [-1, -2, -3, -4, -5]
 
-roundnumber = 0 #to clarify what number of question we are going to ask
+round_number = 0 #to clarify what number of question we are going to ask
 
 Final_review = 0
 
@@ -23,7 +32,8 @@ Final_review = 0
 
 def new_game():
 
-    welcome_msg = render_template('welcome')
+    welcome_msg = 'Welcome, this is alpha bay max, we are going to help you analyze your current mood state,\
+                    and try our best to make you feel better'
 
     return question(welcome_msg)
 
@@ -32,30 +42,30 @@ def new_game():
 
 def next_round():
 
-    numbers = [randint(0, 9) for _ in range(3)]
 
-    round_msg = render_template('round', numbers=numbers)
+    round_msg = question_list[round_number]
 
-    session.attributes['question'] = question_list[roundnumber]  # input the question into the session
+    session.attributes['positive_ans'] = positive_list[round_number]  # input the question into the session
 
-    roundnumber+=1
+    round_number+=1
 
     return question(round_msg)
 
 
-@ask.intent("AnswerIntent", convert={'first': int, 'second': int, 'third': int})
+@ask.intent("AnswerIntent", convert={'first': str})
 
 def answer(first, second, third):
 
-    winning_numbers = session.attributes['numbers']
-
-    if [first, second, third] == winning_numbers:
-
-        msg = render_template('win')
-
+    winning_numbers = session.attributes['positive_ans']
+    if round_number < total_question:
+        msg = 'Thanks for your answer, we are going to ask you another question'
     else:
+        msg = "Thanks, we have ask all our questions, and we'll start to analyze"
 
-        msg = render_template('lose')
+    if first == positive_list[round_number-1]:
+        Final_review += positive_points[round_number-1]
+    elif first == negetive_list[round_number-1]:
+        Final_review += negative_points[round_number-1]
 
     return statement(msg)
 
