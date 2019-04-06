@@ -24,6 +24,8 @@ negative_list = ['no', 'no', 'no', 'no', 'no'] #answer that will decrease the fi
 positive_points = [1, 2, 3, 4, 5]
 negative_points = [-1, -2, -3, -4, -5]
 mood_state = ['fine', 'sad', 'very sad', 'desperate']
+suggestions = ['We think more exercise, have more connects with your friends would help']
+
 
 round_number = 0 #to clarify what number of question we are going to ask
 
@@ -68,10 +70,11 @@ def answer(first, second, third):
     elif first == negetive_list[round_number-1]:
         Final_review += negative_points[round_number-1]
 
+    mood_state_ana = classify_func(Final_review)
 
     if round_number == total_question:
-        msg
-
+        msg += 'we think now you are {}'.format(str(mood_state_ana))
+        msg += suggestions[0]
     return statement(msg)
 
 def classify_func(review_score):
