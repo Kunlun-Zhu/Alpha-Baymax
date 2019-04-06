@@ -17,6 +17,8 @@ question_list = ['question1', 'question2', 'question3', 'question4', 'question5'
 
 roundnumber = 0 #to clarify what number of question we are going to ask
 
+Final_review = 0
+
 @ask.launch
 
 def new_game():
