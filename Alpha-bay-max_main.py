@@ -13,7 +13,7 @@ ask = Ask(app, "/")
 
 logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 
-question_list = ['question1', 'question2', 'question3', 'question4', 'question5']
+question_list = ['question1', 'question2', 'question3', 'question4', 'question5'] #list of question we are going to ask
 
 roundnumber = 0 #to clarify what number of question we are going to ask
 
