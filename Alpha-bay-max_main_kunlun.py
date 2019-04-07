@@ -77,7 +77,7 @@ def answer1(first):
 
         msg = 'we think now you are {}'.format(str(mood_state_ana))
         msg += session.attributes['suggestions']
-        return statement(msg)
+        return question(msg)
 
 @ask.intent("YesIntent")
 
@@ -103,7 +103,7 @@ def answer2(first):
         msg = 'Thanks for your answer, we are going to ask you another question'
         session.attributes['round_number'] += 1
 
-        return statement(msg)
+        return question(msg)
     else:
         msg = "Thanks, we have ask all our questions, and we'll start to analyze"
 
