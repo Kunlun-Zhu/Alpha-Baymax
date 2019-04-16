@@ -1,4 +1,4 @@
-# Alpha-Bay-max
+# Alpha-Baymax
 Amazon Alexa assistant
 
 ## This project aims for helping those who might need some help talking to someone.
