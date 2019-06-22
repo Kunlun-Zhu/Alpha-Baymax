@@ -31,9 +31,9 @@ def new_game():
     
     session.attributes['positive_answer'] = ['yes', 'no', 'no', 'no', 'yes']
 
-    session.attributes['positive_points'] = [1, 2, 3, 4, 5]
+    session.attributes['positive_points'] = [1, 2, 3, 4, 5, 6]
 
-    session.attributes['negative_points'] = [-1, -2, -3, -4, -5]
+    session.attributes['negative_points'] = [-1, -2, -3, -4, -5, 6]
 
     session.attributes['mood_state'] = ['fine', 'sad', 'very sad', 'desperate']
     
