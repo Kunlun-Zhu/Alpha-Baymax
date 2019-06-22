@@ -21,12 +21,13 @@ def new_game():
                     and try our best to make you feel better'
 
     session.attributes['total_question'] = 5
-    
+    #sample questions
     session.attributes['question_list'] = ['Do you feel bad today',\
-                     'Do you have any intimate relation in this week',\
                      'Did you exercise in the last three days',\
                      'Do you talk to more than two friends in last two days',\
-                      'Are you facing any deadline right now'] #list of question we are going to ask
+                      'Are you facing any deadline right now',\
+                      'Did you feel stressful over 5 times a week',\
+                       'Do you drink a lot or use drugs'] #list of question we are going to ask
     
     session.attributes['positive_answer'] = ['yes', 'no', 'no', 'no', 'yes']
 
