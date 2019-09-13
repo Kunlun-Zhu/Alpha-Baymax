@@ -8,6 +8,6 @@ Amazon Alexa assistant
 ## We need help from designing the questions might be helpful and how we evaluate the answers
 
 ### More reference could be found
-https://developer.amazon.com/alexa
+https://developer.amazon.com/alexa  
 https://jamanetwork.com/journals/jamapsychiatry/article-abstract/487993
 
